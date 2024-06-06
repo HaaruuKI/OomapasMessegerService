@@ -43,21 +43,7 @@ def FuctionSendMessage(numeros, messageTemplate):
     #     pywhatkit.sendwhatmsg_instantly("+52"+str(num), messageTemplate)
 
     print(list(map(str, numeros)))
-    account_sid = 'AC688140e0ef564a8dc5bb8a0113aa1626'
-    auth_token = 'cc50be07d923abf54ae019f0f4307dc3'
-    client = Client(account_sid, auth_token)
-    for num in numeros:
-        message = client.messages.create(
-        from_='whatsapp:+14155238886',
-        body=messageTemplate,
-        to='whatsapp:+521' + str(num)
-        )
-        print(message.sid)
-        print('Enviar mensajde al numero: ' + str(num))
-        print(messageTemplate)
-        print("//////////////////////////////////////////////////////////////////////////////7")
-
-
+   
 def view_excel(request):
     session = request.session
     numeros = session.get('numeros')
