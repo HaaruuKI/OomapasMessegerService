@@ -1,0 +1,27 @@
+{% comment %} {% load static %} {% endcomment %}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mensajeria</title>
+    {% comment %} <link rel="stylesheet" href="{% static 'css/style.css' %}" /> {% endcomment %}
+  </head>
+
+  <body>
+    {% comment %} <div data-collapse="medium" data-animation="default" data-duration="400" data-easing="ease" data-easing2="ease" role="banner" class="navigation-bar w-nav">
+      <div class="w-container">
+        <a href="/" aria-current="page" class="brand-link w-nav-brand w--current"></a>
+      </div>
+    </div> {% endcomment %}
+    <h1>Subir archivo de Excel</h1>
+    <form method="POST" enctype="multipart/form-data">
+      {% csrf_token %}
+      <input type="file" name="file" accept=".xlsx" required />
+      <input type="text" name="namePage" placeholder="Ponga el nombre excto de la hoja." required />
+      <input type="text" name="letterColumn" placeholder="Ponga la letra de la Columna que desea optener el dato." required />
+      <button type="submit" name="upload_excel" value="Subir archivo">Subir archivo</button>
+    </form>
+  </body>
+</html>
