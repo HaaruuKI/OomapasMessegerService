@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Subir datos de Excel</title>
+  <title>Oomapas Mensajeria</title>
   <link rel="stylesheet" href="{% static 'css/style.css' %}"/>
 <style>
   body {
@@ -52,6 +52,12 @@
     cursor: pointer;
     margin-top: 15px;
   }
+  .color-letra-error{
+    color: red;
+    font-weight: bold;
+  
+  }
+  
   
 </style>
 </head>
@@ -73,6 +79,8 @@
       <input type="text" name="letterColumn" id="letterColumn" placeholder="Introduce la letra de la columna deseada" required />
     </div>
     <button type="submit" name="upload_excel" value="Upload File">Subir Archivo</button>
+    <p class="error-message color-letra-error">{{ error }}</p>
+
   </form>
 </body>
 </html>
