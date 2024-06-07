@@ -1,0 +1,20 @@
+Date: 6/6/2024
+Time: 5:48
+Phone Number: +526311263636
+Message: Este es un mensaje de prueba
+--------------------
+Date: 6/6/2024
+Time: 5:48
+Phone Number: +526311860453
+Message: Este es un mensaje de prueba
+--------------------
+Date: 7/6/2024
+Time: 8:45
+Phone Number: +526311860453
+Message: Este es un mensaje masivo enviado con Python.
+--------------------
+Date: 7/6/2024
+Time: 8:56
+Phone Number: +526311860453
+Message: Este es un mensaje masivo enviado con Python.
+--------------------

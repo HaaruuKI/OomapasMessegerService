@@ -2,7 +2,10 @@ from django.contrib.sessions.models import Session
 from django.shortcuts import render, redirect
 from twilio.rest import Client
 from time import sleep
+import webbrowser as web
 import pywhatkit
+import pyautogui as pg
+
 import pandas as pd
 
 def ReadExcel(request):
@@ -39,24 +42,33 @@ def ReadExcel(request):
     return render(request, 'index.html')
 
 def FuctionSendMessage(numeros, messageTemplate):
-    # for num in numeros:
-    #     pywhatkit.sendwhatmsg_instantly("+52"+str(num), messageTemplate)
-
-    print(list(map(str, numeros)))
-    account_sid = 'AC688140e0ef564a8dc5bb8a0113aa1626'
-    auth_token = 'cc50be07d923abf54ae019f0f4307dc3'
-    client = Client(account_sid, auth_token)
     for num in numeros:
-        message = client.messages.create(
-        from_='whatsapp:+14155238886',
-        body=messageTemplate,
-        to='whatsapp:+521' + str(num)
-        )
-        print(message.sid)
-        print('Enviar mensajde al numero: ' + str(num))
-        print(messageTemplate)
-        print("//////////////////////////////////////////////////////////////////////////////7")
+        try:
+            web.get(using=None).open("https://web.whatsapp.com/send?phone=+52" + str(num) + "&text=" + messageTemplate )
+            sleep(6)
+            pg.click(1230, 1150)
+            sleep(2)
+            pg.press("enter")
 
+            sleep(4)
+            pg.hotkey('ctrl','w')
+            sleep(1)
+        except Exception as e:
+            print(f"Error opening WhatsApp for number {num}: {e}")
+
+        
+        # try:
+        #     with open("Reporte.txt", "a") as archivo:
+        #         today = date.today()
+        #         now = datetime.now()
+
+        #         fecha = f"{today.day}/{today.month}/{today.year}"
+        #         hora = f"{now.hour}:{now.minute}"
+
+        #         archivo.write(f"Fecha: {fecha}\nHora: {hora}\nNumero de telefono: {num}\nMensaje: {messageTemplate}\n--------------------")
+        # except Exception as error:
+        #     # Maneja cualquier error que ocurra
+        #     print(f"Error al crear el archivo: {error}")
 
 def view_excel(request):
     session = request.session

@@ -1,17 +1,46 @@
-:root {
-    --steel-bleue: #3b99d9;
-    --steel-bue-2: #2e80b6;
-    --dark-khaki: #a8d069;
-    --medium-sea-green: #30ad64;
-    --light-sea-green: #25ccbf;
-    --light-sea-green-2: #20ac99;
-    --sand-brown: #f8c740;
-    --goldenrod: #e2a62b;
-    --khaki: #face6a;
-    --sandy-brown-2: #e5b962;
-    --salmon: #fd7072;
-    --indian-red-2: #af4173;
-    --tan: #d39f9a;
-
-
-}
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+  }
+  
+  h1 {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .upload-form {
+    display: flex;
+    flex-direction: column;
+    width: 400px;
+    margin: 0 auto;
+  }
+  
+  .input-group {
+    margin-bottom: 15px;
+  }
+  
+  label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+  }
+  
+  input[type="text"],
+  input[type="file"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+  }
+  
+  button[type="submit"] {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 15px;
+  }
+  

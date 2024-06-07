@@ -1,27 +1,78 @@
-{% comment %} {% load static %} {% endcomment %}
-
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Mensajeria</title>
-    {% comment %} <link rel="stylesheet" href="{% static 'css/style.css' %}" /> {% endcomment %}
-  </head>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Subir datos de Excel</title>
+  <link rel="stylesheet" href="{% static 'css/style.css' %}"/>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+  }
+  
+  h1 {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .upload-form {
+    display: flex;
+    flex-direction: column;
+    width: 400px;
+    margin: 0 auto;
+  }
+  
+  .input-group {
+    margin-bottom: 15px;
+  }
+  
+  label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+  }
+  
+  input[type="text"],
+  input[type="file"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+  }
+  
+  button[type="submit"] {
+    background-color: #0989E7;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 15px;
+  }
+  
+</style>
+</head>
+<body>
+  <h1>Cargar Datos de Excel</h1>
 
-  <body>
-    {% comment %} <div data-collapse="medium" data-animation="default" data-duration="400" data-easing="ease" data-easing2="ease" role="banner" class="navigation-bar w-nav">
-      <div class="w-container">
-        <a href="/" aria-current="page" class="brand-link w-nav-brand w--current"></a>
-      </div>
-    </div> {% endcomment %}
-    <h1>Subir archivo de Excel</h1>
-    <form method="POST" enctype="multipart/form-data">
-      {% csrf_token %}
-      <input type="file" name="file" accept=".xlsx" required />
-      <input type="text" name="namePage" placeholder="Ponga el nombre excto de la hoja." required />
-      <input type="text" name="letterColumn" placeholder="Ponga la letra de la Columna que desea optener el dato." required />
-      <button type="submit" name="upload_excel" value="Subir archivo">Subir archivo</button>
-    </form>
-  </body>
+  <form method="POST" enctype="multipart/form-data" class="upload-form">
+    {% csrf_token %}
+    <div class="input-group">
+      <label for="file">Selecciona el Archivo de Excel (Solo XLSX):</label>
+      <input type="file" name="file" id="file" accept=".xlsx" required />
+    </div>
+    <div class="input-group">
+      <label for="namePage">Nombre de la Hoja de calculo:</label>
+      <input type="text" name="namePage" id="namePage" placeholder="Introduce el nombre exacto de la hoja de calculo" required />
+    </div>
+    <div class="input-group">
+      <label for="letterColumn">Columna de Datos:</label>
+      <input type="text" name="letterColumn" id="letterColumn" placeholder="Introduce la letra de la columna deseada" required />
+    </div>
+    <button type="submit" name="upload_excel" value="Upload File">Subir Archivo</button>
+  </form>
+</body>
 </html>
